@@ -3,4 +3,4 @@ export default class WrongDataException extends Error {
         super(message);
         this.name = 'WrongDataException';
     }
-}
+} 

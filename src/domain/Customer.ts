@@ -4,7 +4,7 @@ interface Customer {
     readonly id: number;
     firstName: string;
     lastName: string; 
-    address?: string;
+    address?: string; 
     balance: number;
     badCreditHistoryCount: number;
     updateBalance: (amoount:number) => void;

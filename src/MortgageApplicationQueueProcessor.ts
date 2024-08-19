@@ -32,4 +32,4 @@ class MortgageApplicationQueueProcessor {
     }
 }
 
-export default MortgageApplicationQueueProcessor;
+export default MortgageApplicationQueueProcessor; 

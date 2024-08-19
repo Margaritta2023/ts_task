@@ -3,4 +3,4 @@ export default class NotEligibleForMortgageException extends Error {
         super(message);
         this.name = 'NotEligibleForMortgageException';
     }
-}
+} 
