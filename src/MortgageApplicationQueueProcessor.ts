@@ -25,7 +25,7 @@ class MortgageApplicationQueueProcessor {
         };
     }
 
-    private getCustomer(customerId:number) {
+    private getCustomer(customerId:number) : CustomerClass | null {
         const customer = this.customerRepository.get(customerId);
         this.checkWrongData(customer);
         return customer;
