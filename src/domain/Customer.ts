@@ -40,3 +40,4 @@ export default class CustomerClass implements Customer{
         return isEligibleForMortgage;
     }
 }
+//
