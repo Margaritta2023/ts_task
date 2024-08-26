@@ -3,9 +3,9 @@ import CustomerClass from './domain/Customer';
 
 class MortgageApplicationQueueProcessor {
 
-    constructor(private customerRepository : { get : (id:number) => CustomerClass | null}) {}
+    constructor(private readonly customerRepository : { get : (id:number) => CustomerClass | null}) {}
 
-    static MESSAGE_INVALID_CUSTOMER: string = 'Customer not found!';
+    static MESSAGE_INVALID_CUSTOMER = 'Customer not found!';
 
     private checkWrongData(customer: CustomerClass | null ) :void {
         if (!customer)
