@@ -3,13 +3,13 @@ import CustomerClass from './domain/Customer';
 
 class MortgageApplicationQueueProcessor {
 
-    constructor(private readonly customerRepository : { get : (id:number) => CustomerClass | null}) {}//DONE - made the property private and readonly
+    constructor(private  customerRepository : { get : (id:number) => CustomerClass | null}) {}
 
-    static MESSAGE_INVALID_CUSTOMER = 'Customer not found!'; // DONE - removed explicitly assigning the string type 
+    private  readonly  MESSAGE_INVALID_CUSTOMER = 'Customer not found!'; 
 
     private checkWrongData(customer: CustomerClass | null ) :void {
         if (!customer)
-            throw new WrongDataException(MortgageApplicationQueueProcessor.MESSAGE_INVALID_CUSTOMER);
+            throw new WrongDataException(this.MESSAGE_INVALID_CUSTOMER);
     }
 
     public processRequest(customerId: number, amountRequested: number): void {
@@ -21,16 +21,18 @@ class MortgageApplicationQueueProcessor {
        if(customer) {
         customer.updateBalance(amountRequested)
     } else {
-        throw new WrongDataException(MortgageApplicationQueueProcessor.MESSAGE_INVALID_CUSTOMER)
+        throw new WrongDataException(this.MESSAGE_INVALID_CUSTOMER)
         };
     }
 
-    private getCustomer(customerId:number) : CustomerClass | null { //DONE - provided return type : CustomerClass | null
+    private getCustomer(customerId:number) : CustomerClass  { 
         const customer = this.customerRepository.get(customerId);
+        
         this.checkWrongData(customer);
-        return customer;
+
+        return customer as CustomerClass;
     }
 }
 
 export default MortgageApplicationQueueProcessor;
-//
+

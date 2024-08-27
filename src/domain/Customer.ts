@@ -11,8 +11,7 @@ interface Customer {
     isEligibleForMortgage: (amoount:number) => boolean;
 }
 
-export default class CustomerClass { // DONE - removed  the "implements Customer " part
-
+export default class CustomerClass { 
 
     constructor(
         readonly id: number,
@@ -31,7 +30,7 @@ export default class CustomerClass { // DONE - removed  the "implements Customer
        }
     }
 
-   private isEligibleForMortgage(amountRequested: number): boolean { // DONE - made the method private
+   private isEligibleForMortgage(amountRequested: number): boolean { 
         let isEligibleForMortgage = false;
 
         if (this.badCreditHistoryCount === 0 && this.balance > 0)
@@ -40,4 +39,3 @@ export default class CustomerClass { // DONE - removed  the "implements Customer
         return isEligibleForMortgage;
     }
 }
-//
